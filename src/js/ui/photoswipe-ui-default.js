@@ -167,9 +167,14 @@ var PhotoSwipeUI_Default =
 		},
 		_toggleShareModal = function() {
 
+			//Code modification for Crowd. We don't want to display some fancy popup nor make the
+			//screen fade dark at this point. all we want is to invoke the callback for "shareLinkClicked".
+			pswp.shout('shareLinkClick', pswp);
+			return false;
+
 			_shareModalHidden = !_shareModalHidden;
-			
-			
+
+
 			if(!_shareModalHidden) {
 				_toggleShareModalClass();
 				setTimeout(function() {
