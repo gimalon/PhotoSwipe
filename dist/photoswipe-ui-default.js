@@ -170,9 +170,13 @@ var PhotoSwipeUI_Default =
 		},
 		_toggleShareModal = function() {
 
+			//Don't show a popup or make the screen fade dark at this point. only send "shareLinkClicked" event.
+			pswp.shout('shareLinkClick', pswp);
+			return false;
+
 			_shareModalHidden = !_shareModalHidden;
-			
-			
+
+
 			if(!_shareModalHidden) {
 				_toggleShareModalClass();
 				setTimeout(function() {
